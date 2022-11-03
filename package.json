@@ -1,0 +1,23 @@
+{
+  "name": "my_web3_journey",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kongcheng1400/my_web3_journey.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kongcheng1400/my_web3_journey/issues"
+  },
+  "homepage": "https://github.com/kongcheng1400/my_web3_journey#readme",
+  "dependencies": {
+    "ethers": "^5.7.2"
+  }
+}
