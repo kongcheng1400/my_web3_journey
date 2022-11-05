@@ -2,8 +2,6 @@ import { ethers } from "ethers";
 import * as fs from 'fs';
 let output = fs.readFileSync('api.key.json');
 let providers = JSON.parse(output);
-//const provider = ethers.getDefaultProvider();
-//let alchemyProviders = new ethers.providers.AlchemyProvider("homestead", providers.alchemy[0].apikey);
 const alchemyProviders = new Array();
 for (const alchemy of providers.alchemy) {
     let key = alchemy.apikey;
