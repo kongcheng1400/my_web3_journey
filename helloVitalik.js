@@ -3,20 +3,24 @@ import * as fs from 'fs';
 let output = fs.readFileSync('api.key.json');
 let providers = JSON.parse(output);
 //const provider = ethers.getDefaultProvider();
-let alchemyProvider = new ethers.providers.AlchemyProvider("homestead", providers.alchemy[0].apikey);
-let infuraProvider = new ethers.providers.InfuraProvider("homestead", providers.infura[0].apikey);
-let infuraHttpProvider = new ethers.providers.JsonRpcProvider(infuraProvider.connection.url);
-infuraHttpProvider.getBlockNumber().then((result) => {
-    console.log("Current block number: " + result);
-});
-//console.log(infuraProvider);
+//let alchemyProviders = new ethers.providers.AlchemyProvider("homestead", providers.alchemy[0].apikey);
+const alchemyProviders = new Array();
+for (const alchemy of providers.alchemy) {
+    let key = alchemy.apikey;
+    alchemyProviders.push(new ethers.providers.AlchemyProvider("homestead", key));
+}
+
+
 const main = async () => {
-    let balanceFromAlchemy = await alchemyProvider.getBalance(`vitalik.eth`);
-    console.log(`ETH Balance of vitalik from alchemy: ${ethers.utils.formatEther(balanceFromAlchemy)} ETH`);
+    for (const alchemyProvider of alchemyProviders) {
+        let balanceFromAlchemy = await alchemyProvider.getBalance(`vitalik.eth`);
+        console.log(`ETH Balance of vitalik from alchemy: ${ethers.utils.formatEther(balanceFromAlchemy)} ETH`);
+    }
+    console.log('round finish!')
 }
 main()
 
-setInterval(main, 6000);
+setInterval(main, 30000);
 
 /*
 var ethers = require('ethers');
