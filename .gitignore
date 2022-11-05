@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # keys
-#api.key.json
+api.key.json
