@@ -43,5 +43,5 @@ const main = async() => {
 
     }
 }
-//main()
+main()
 setInterval(main, 120000);
