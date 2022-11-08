@@ -14,8 +14,14 @@ for (const p of providers.alchemy) {
     providerToId.set(provider, p.id)
 }
 
+/*
 let infuraProvider = new ethers.providers.JsonRpcProvider(providers.infura[0].https)
 providerToId.set(infuraProvider, providers.infura[0].id)
+*/
+for (const p of providers.alchemy) {
+    const provider = new ethers.providers.JsonRpcProvider(p.https)
+    providerToId.set(provider, p.id)
+}
 
 const main = async() => {
     console.log('the iteration begins:');
