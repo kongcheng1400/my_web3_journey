@@ -18,7 +18,7 @@ for (const p of providers.alchemy) {
 let infuraProvider = new ethers.providers.JsonRpcProvider(providers.infura[0].https)
 providerToId.set(infuraProvider, providers.infura[0].id)
 */
-for (const p of providers.alchemy) {
+for (const p of providers.infura) {
     const provider = new ethers.providers.JsonRpcProvider(p.https)
     providerToId.set(provider, p.id)
 }
